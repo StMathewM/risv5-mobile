@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".update_profile"
+    android:orientation="vertical"
+    android:background="#ededed">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/ic_profile"
+                android:paddingTop="10dp" />
+
+            <Button
+                android:id="@+id/btn_uploadUserProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+
+                android:elevation="4dp"
+                android:paddingLeft="70dp"
+                android:paddingRight="70dp"
+                android:text="Upload Profile Picture"
+                android:textColor="#fff" />
+
+            <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <EditText
+                android:id="@+id/UserName"
+                android:layout_width="fill_parent"
+                android:layout_height="75dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+
+                android:breakStrategy="balanced"
+                android:fitsSystemWindows="true"
+                android:gravity="top"
+                android:hint="Name:"
+                android:inputType="textMultiLine"
+                android:padding="5dp"
+                android:singleLine="false" />
+
+            <LinearLayout
+                android:id="@+id/linear_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dip">
+
+                <!-- Text Label -->
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dip"
+                    android:layout_marginBottom="5dp"
+                    android:text="Sex:"
+                    android:textSize="20sp" />
+
+                <!-- Spinner Element -->
+
+                <!-- Spinner Element -->
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/UserEmail"
+                android:layout_width="fill_parent"
+                android:layout_height="75dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+
+                android:breakStrategy="balanced"
+                android:fitsSystemWindows="true"
+                android:gravity="top"
+                android:hint="Email:"
+                android:inputType="textMultiLine"
+                android:padding="5dp"
+                android:singleLine="false" />
+
+            <EditText
+                android:id="@+id/UserNumber"
+                android:layout_width="fill_parent"
+                android:layout_height="75dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+
+                android:breakStrategy="balanced"
+                android:fitsSystemWindows="true"
+                android:gravity="top"
+                android:hint="Contact Number:"
+                android:inputType="textMultiLine"
+                android:padding="5dp"
+                android:singleLine="false" />
+
+            <EditText
+                android:id="@+id/UserBarangay"
+                android:layout_width="fill_parent"
+                android:layout_height="75dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+
+                android:breakStrategy="balanced"
+                android:fitsSystemWindows="true"
+                android:gravity="top"
+                android:hint="Barangay:"
+                android:inputType="textMultiLine"
+                android:padding="5dp"
+                android:singleLine="false" />
+
+
+            <Button
+                android:id="@+id/btn_UpdateUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+
+                android:elevation="4dp"
+                android:paddingLeft="70dp"
+                android:paddingRight="70dp"
+                android:text="Update"
+                android:textColor="#fff" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50sp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/current_pass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="70dp"
+                    android:hint="Current Password"
+                    android:inputType="textPassword"
+                    android:minWidth="200sp" />
+
+                <Button
+                    android:id="@+id/showHideBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Show" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50sp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/newpass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="70dp"
+                    android:hint="New Password"
+                    android:inputType="textPassword"
+                    android:minWidth="200sp" />
+
+                <Button
+                    android:id="@+id/shownewpass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Show" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50sp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/confirm_pass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="70dp"
+                    android:hint="Confirm Password"
+                    android:inputType="textPassword"
+                    android:minWidth="200sp" />
+
+                <Button
+                    android:id="@+id/showpass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Show" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_UpdatePass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+
+                android:elevation="4dp"
+                android:paddingLeft="70dp"
+                android:paddingRight="70dp"
+                android:text="Update Password"
+                android:textColor="#fff" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/MOBILEARIS/app/src/main/res/drawable/ic_birth.xml" value="0.149" />
+        <entry key="..\:/MOBILEARIS/app/src/main/res/drawable/ic_number.xml" value="0.149" />
+        <entry key="..\:/MOBILEARIS/app/src/main/res/drawable/ic_pets.xml" value="0.149" />
+        <entry key="..\:/MOBILEARIS/app/src/main/res/drawable/ic_profile.xml" value="0.149" />
+        <entry key="..\:/MOBILEARIS/app/src/main/res/drawable/ic_username.xml" value="0.149" />
+        <entry key="..\:/MOBILEARIS/app/src/main/res/drawable/selector.xml" value="0.149" />
+        <entry key="..\:/MOBILEARIS/app/src/main/res/layout/activity_add_pets.xml" value="0.17119565217391305" />
+        <entry key="..\:/MOBILEARIS/app/src/main/res/layout/activity_announcement.xml" value="0.17119565217391305" />
+        <entry key="..\:/MOBILEARIS/app/src/main/res/layout/activity_appointments.xml" value="0.17119565217391305" />
+        <entry key="..\:/MOBILEARIS/app/src/main/res/layout/activity_bite_case_file.xml" value="0.16770833333333332" />
+        <entry key="..\:/MOBILEARIS/app/src/main/res/layout/activity_bite_cases.xml" value="0.17119565217391305" />
+        <entry key="..\:/MOBILEARIS/app/src/main/res/layout/activity_edit_pet.xml" value="0.16770833333333332" />
+        <entry key="..\:/MOBILEARIS/app/src/main/res/layout/activity_health_report.xml" value="0.16770833333333332" />
+        <entry key="..\:/MOBILEARIS/app/src/main/res/layout/activity_home.xml" value="0.17119565217391305" />
+        <entry key="..\:/MOBILEARIS/app/src/main/res/layout/activity_login_user.xml" value="0.17119565217391305" />
+        <entry key="..\:/MOBILEARIS/app/src/main/res/layout/activity_main.xml" value="0.1546875" />
+        <entry key="..\:/MOBILEARIS/app/src/main/res/layout/activity_my_pets.xml" value="0.17119565217391305" />
+        <entry key="..\:/MOBILEARIS/app/src/main/res/layout/activity_pending_tab.xml" value="0.17119565217391305" />
+        <entry key="..\:/MOBILEARIS/app/src/main/res/layout/activity_pet_profile.xml" value="0.17119565217391305" />
+        <entry key="..\:/MOBILEARIS/app/src/main/res/layout/activity_pets_profile.xml" value="0.17119565217391305" />
+        <entry key="..\:/MOBILEARIS/app/src/main/res/layout/activity_register_user.xml" value="0.17119565217391305" />
+        <entry key="..\:/MOBILEARIS/app/src/main/res/layout/activity_update_profile.xml" value="0.16770833333333332" />
+        <entry key="..\:/MOBILEARIS/app/src/main/res/layout/activity_user_profile.xml" value="0.152" />
+        <entry key="..\:/MOBILEARIS/app/src/main/res/menu/menu_main.xml" value="0.25" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
