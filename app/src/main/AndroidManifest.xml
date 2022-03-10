@@ -10,14 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MOBILEARIS">
         <activity
+            android:name=".contact_form"
+            android:label="Contact Form" />
+        <activity
             android:name=".register_user"
-            android:exported="false" />
+            android:label="Register" />
         <activity
             android:name=".login_user"
-            android:exported="false" />
+            android:label="Login" />
         <activity
             android:name=".edit_pet"
-            android:exported="false" />
+            android:label="Edit Pet" />
         <activity
             android:name=".pet_profile"
             android:label="Pet Profile" />
