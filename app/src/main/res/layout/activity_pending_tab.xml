@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".pending_tab">
-    android:orientation="vertical"
-    android:background="#ededed">
-
 
     <ScrollView
         android:layout_width="match_parent"
@@ -18,13 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <Button
-                android:id="@+id/SetAppointment"
-                android:layout_width="wrap_content"
 
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|center_horizontal"
-                android:text="Set Appointment" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -35,7 +26,7 @@
 
                 <androidx.cardview.widget.CardView
 
-                    android:id="@+id/Add_card"
+                    android:id="@+id/display_cancelled"
                     android:layout_width="340dp"
                     android:layout_height="200dp"
                     android:layout_margin="10dp"
@@ -49,4 +40,4 @@
 
     </ScrollView>
 
-</LinearLayout>
+</RelativeLayout>
