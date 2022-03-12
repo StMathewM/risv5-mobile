@@ -47,7 +47,7 @@
             <EditText
                 android:id="@+id/UserName"
                 android:layout_width="fill_parent"
-                android:layout_height="75dp"
+                android:layout_height="60dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
 
@@ -88,7 +88,7 @@
             <EditText
                 android:id="@+id/UserEmail"
                 android:layout_width="fill_parent"
-                android:layout_height="75dp"
+                android:layout_height="60dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
 
@@ -103,7 +103,7 @@
             <EditText
                 android:id="@+id/UserNumber"
                 android:layout_width="fill_parent"
-                android:layout_height="75dp"
+                android:layout_height="60dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
 
@@ -118,7 +118,7 @@
             <EditText
                 android:id="@+id/UserBarangay"
                 android:layout_width="fill_parent"
-                android:layout_height="75dp"
+                android:layout_height="60dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
 
@@ -149,20 +149,28 @@
                 android:layout_marginTop="50sp"
                 android:gravity="center"
                 android:orientation="horizontal">
+                <com.google.android.material.textfield.TextInputLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    app:passwordToggleEnabled="true">
 
                 <EditText
                     android:id="@+id/current_pass"
-                    android:layout_width="wrap_content"
-                    android:layout_height="70dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="10dp"
                     android:hint="Current Password"
                     android:inputType="textPassword"
-                    android:minWidth="200sp" />
 
-                <Button
-                    android:id="@+id/showHideBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Show" />
+                    android:maxLines="1"
+                    android:paddingStart="5dp"
+                    android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -171,20 +179,26 @@
                 android:layout_marginTop="50sp"
                 android:gravity="center"
                 android:orientation="horizontal">
+                <com.google.android.material.textfield.TextInputLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    app:passwordToggleEnabled="true">
 
                 <EditText
-                    android:id="@+id/newpass"
-                    android:layout_width="wrap_content"
-                    android:layout_height="70dp"
+                    android:id="@+id/new_pass"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+
                     android:hint="New Password"
                     android:inputType="textPassword"
-                    android:minWidth="200sp" />
-
-                <Button
-                    android:id="@+id/shownewpass"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Show" />
+                    android:maxLines="1"
+                    android:paddingStart="5dp"
+                    android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -193,20 +207,27 @@
                 android:layout_marginTop="50sp"
                 android:gravity="center"
                 android:orientation="horizontal">
+                <com.google.android.material.textfield.TextInputLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    app:passwordToggleEnabled="true">
 
                 <EditText
                     android:id="@+id/confirm_pass"
-                    android:layout_width="wrap_content"
-                    android:layout_height="70dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+
                     android:hint="Confirm Password"
                     android:inputType="textPassword"
-                    android:minWidth="200sp" />
+                    android:maxLines="1"
+                    android:paddingStart="5dp"
+                    android:singleLine="true" />
 
-                <Button
-                    android:id="@+id/showpass"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Show" />
+                </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
             <Button

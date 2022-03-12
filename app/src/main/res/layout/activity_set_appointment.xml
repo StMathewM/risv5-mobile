@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical"
+    android:padding="16dp">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:textSize="25dp"
+            android:layout_marginTop="10dip"
+            android:text="Clinics:"
+
+            />
+        <RadioButton
+            android:id="@+id/radio_nearby"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:onClick="onRadioButtonClicked"
+            android:text="Nearby"
+            android:textSize="18dp" />
+
+        <RadioButton
+            android:id="@+id/radio_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="All"
+            android:textSize="18dp" />
+
+    </RadioGroup>
+
+            <EditText
+                android:id="@+id/in_date"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="180dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SELECT DATE"
+        android:id="@+id/btn_date"
+        android:layout_alignBottom="@+id/in_date"
+        android:layout_toRightOf="@+id/in_date"
+        android:layout_toEndOf="@+id/in_date" />
+
+
+            <RadioButton
+                android:id="@+id/radio_8am"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="250dp"
+                android:onClick="onRadioButtonClicked"
+                android:text="8:00 a.m - 9:00 a.m"
+                android:textSize="18dp" />
+
+            <RadioButton
+                android:id="@+id/radio_9am"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="300dp"
+                android:onClick="onRadioButtonClicked"
+                android:text="9:30 a.m - 10:30 a.m"
+                android:textSize="18dp" />
+
+            <RadioButton
+                android:id="@+id/radio_11am"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="350dp"
+                android:onClick="onRadioButtonClicked"
+                android:text="11:00 a.m - 12:00 nn"
+                android:textSize="18dp" />
+
+            <LinearLayout
+                android:id="@+id/linear_layout"
+                android:layout_width="400dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="400dp"
+                android:orientation="vertical"
+                android:padding="10dip">
+
+                <!-- Text Label -->
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dip"
+                    android:layout_marginBottom="5dp"
+                    android:text="Vaccination facilities:"
+                    android:textSize="25dp" />
+
+                <!-- Spinner Element -->
+                <Spinner
+                    android:id="@+id/dd_facilities"
+                    android:layout_width="fill_parent"
+                    android:layout_height="80dp"
+
+                    />
+            </LinearLayout>
+
+
+            <EditText
+                android:id="@+id/Purpose"
+                android:layout_width="fill_parent"
+                android:layout_height="90dp"
+                android:layout_marginTop="580dp"
+                android:layout_marginBottom="10dp"
+
+                android:breakStrategy="balanced"
+                android:fitsSystemWindows="true"
+                android:gravity="top"
+                android:hint="Purpose"
+                android:inputType="textMultiLine"
+                android:padding="5dp"
+                android:singleLine="false" />
+
+
+            <Button
+                android:id="@+id/SubmitAppointment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+android:gravity="center"
+                android:layout_marginTop="680dp"
+                android:elevation="4dp"
+                android:paddingLeft="70dp"
+                android:paddingRight="70dp"
+                android:text="Submit"
+                android:textColor="#fff" />
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

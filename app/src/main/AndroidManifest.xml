@@ -10,6 +10,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MOBILEARIS">
         <activity
+            android:name=".pending_tab"
+            android:label="Pending/Ongoing Appointments" />
+        <activity
+            android:name=".set_appointment"
+            android:label="Set Appointments" />
+        <activity
+            android:name=".cancelled_tab"
+            android:label="Cancelled Appointments" />
+        <activity
+            android:name=".completed_tab"
+            android:label="Completed Appointments" />
+        <activity
+            android:name=".clinics"
+            android:exported="false" />
+        <activity
+            android:name=".about_aris"
+            android:label="About ARIS" />
+        <activity
             android:name=".contact_form"
             android:label="Contact ARIS" />
         <activity
@@ -48,9 +66,6 @@
         <activity
             android:name=".bite_cases"
             android:label="Bite Cases" />
-        <activity
-            android:name=".pending_tab"
-            android:exported="false" />
         <activity
             android:name=".Appointments"
             android:label="Appointments" />

@@ -85,8 +85,16 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent ( MainActivity.this, contact_form.class);
                 startActivity(intent);
                 return true;
+            case R.id.about_aris:
+                // Navigate "up" the demo structure to the launchpad activity.
+                // See http://developer.android.com/design/patterns/navigation.html for more.
+                Intent intents = new Intent ( MainActivity.this, about_aris.class);
+                startActivity(intents);
+                return true;
+
 
         }
         return super.onOptionsItemSelected(item);
     }
+
 }
