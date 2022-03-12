@@ -11,7 +11,7 @@
         android:theme="@style/Theme.MOBILEARIS">
         <activity
             android:name=".contact_form"
-            android:label="Contact Form" />
+            android:label="Contact ARIS" />
         <activity
             android:name=".register_user"
             android:label="Register" />

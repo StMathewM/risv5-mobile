@@ -13,9 +13,9 @@ public class pet_profile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pet_profile);
-        Button edit_pet;
-        edit_pet = findViewById(R.id.edit_pet);
-        edit_pet.setOnClickListener(new View.OnClickListener() {
+        Button btn_editPet;
+        btn_editPet = findViewById(R.id.btn_editPet);
+        btn_editPet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent ( pet_profile.this, edit_pet.class);

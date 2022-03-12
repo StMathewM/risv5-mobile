@@ -27,7 +27,9 @@
         <entry key="..\:/MOBILEARIS/app/src/main/res/layout/activity_register_user.xml" value="0.17119565217391305" />
         <entry key="..\:/MOBILEARIS/app/src/main/res/layout/activity_update_profile.xml" value="0.16770833333333332" />
         <entry key="..\:/MOBILEARIS/app/src/main/res/layout/activity_user_profile.xml" value="0.152" />
+        <entry key="..\:/MOBILEARIS/app/src/main/res/menu/main.xml" value="0.25" />
         <entry key="..\:/MOBILEARIS/app/src/main/res/menu/menu_main.xml" value="0.25" />
+        <entry key="..\:/MOBILEARIS/app/src/main/res/menu/profile_menu.xml" value="0.2015625" />
       </map>
     </option>
   </component>

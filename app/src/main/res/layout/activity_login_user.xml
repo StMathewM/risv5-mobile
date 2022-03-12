@@ -90,13 +90,26 @@
                     android:textSize="20sp"/>
 
                 <TextView
-                    android:id="@+id/register"
-                    android:layout_width="match_parent"
+                    android:id="@+id/question"
+                    android:layout_width="190dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:gravity="center"
+                    android:gravity="left"
                     android:text="Dont have an acoount?"
+                    android:paddingRight="25dp"
                     android:textColor="@color/black"
+                    android:textSize="16sp"/>
+                <TextView
+                    android:id="@+id/register"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="left"
+                    android:text="Go Register"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_gravity="center"
+                    android:textColor="@color/purple_500"
                     android:textSize="16sp"/>
 
             </LinearLayout>
