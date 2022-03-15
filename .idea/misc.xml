@@ -3,12 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/MOBILEARIS/app/src/main/res/drawable-v24/step1_foreground.xml" value="0.149" />
         <entry key="..\:/MOBILEARIS/app/src/main/res/drawable/ic_birth.xml" value="0.149" />
         <entry key="..\:/MOBILEARIS/app/src/main/res/drawable/ic_number.xml" value="0.149" />
         <entry key="..\:/MOBILEARIS/app/src/main/res/drawable/ic_pets.xml" value="0.149" />
         <entry key="..\:/MOBILEARIS/app/src/main/res/drawable/ic_profile.xml" value="0.149" />
         <entry key="..\:/MOBILEARIS/app/src/main/res/drawable/ic_username.xml" value="0.149" />
         <entry key="..\:/MOBILEARIS/app/src/main/res/drawable/selector.xml" value="0.149" />
+        <entry key="..\:/MOBILEARIS/app/src/main/res/drawable/step1_background.xml" value="0.149" />
         <entry key="..\:/MOBILEARIS/app/src/main/res/layout/activity_about_aris.xml" value="0.17119565217391305" />
         <entry key="..\:/MOBILEARIS/app/src/main/res/layout/activity_add_pets.xml" value="0.17119565217391305" />
         <entry key="..\:/MOBILEARIS/app/src/main/res/layout/activity_announcement.xml" value="0.17119565217391305" />
