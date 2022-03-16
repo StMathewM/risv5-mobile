@@ -56,10 +56,10 @@
 
                 <!-- Spinner Element -->
                 <Spinner
-                    android:id="@+id/sex"
+                    android:id="@+id/petsex"
                     android:layout_width="200dp"
                     android:layout_height="50dp"
-
+                    android:entries="@array/petsex"
                     />
                 <TextView
                     android:layout_width="fill_parent"
@@ -75,7 +75,7 @@
                     android:id="@+id/spicie"
                     android:layout_width="200dp"
                     android:layout_height="50dp"
-
+                    android:entries="@array/petspecies"
                     />
             </LinearLayout>
             <EditText

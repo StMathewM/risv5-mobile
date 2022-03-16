@@ -52,42 +52,41 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="180dp" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SELECT DATE"
-        android:id="@+id/btn_date"
-        android:layout_alignBottom="@+id/in_date"
-        android:layout_toRightOf="@+id/in_date"
-        android:layout_toEndOf="@+id/in_date" />
-
-
-            <RadioButton
-                android:id="@+id/radio_8am"
+            <Button
+                android:id="@+id/btn_date"
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/in_date"
+                android:layout_toEndOf="@+id/in_date"
+                android:layout_toRightOf="@+id/in_date"
+                android:text="SELECT DATE" />
+
+            <LinearLayout
+                android:id="@+id/linear_layout2"
+                android:layout_width="400dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="250dp"
-                android:onClick="onRadioButtonClicked"
-                android:text="8:00 a.m - 9:00 a.m"
-                android:textSize="18dp" />
+                android:orientation="vertical"
+                android:padding="10dip">
 
-            <RadioButton
-                android:id="@+id/radio_9am"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="300dp"
-                android:onClick="onRadioButtonClicked"
-                android:text="9:30 a.m - 10:30 a.m"
-                android:textSize="18dp" />
+                <!-- Text Label -->
 
-            <RadioButton
-                android:id="@+id/radio_11am"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="350dp"
-                android:onClick="onRadioButtonClicked"
-                android:text="11:00 a.m - 12:00 nn"
-                android:textSize="18dp" />
+                <!-- Spinner Element -->
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dip"
+                    android:layout_marginBottom="5dp"
+                    android:text="Vaccination facilities:"
+                    android:textSize="25dp" />
+
+                <Spinner
+                    android:id="@+id/set_time"
+                    android:layout_width="fill_parent"
+                    android:layout_height="59dp"
+
+                    />
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/linear_layout"
@@ -98,6 +97,8 @@
                 android:padding="10dip">
 
                 <!-- Text Label -->
+
+                <!-- Spinner Element -->
                 <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="40dp"
@@ -106,21 +107,19 @@
                     android:text="Vaccination facilities:"
                     android:textSize="25dp" />
 
-                <!-- Spinner Element -->
                 <Spinner
-                    android:id="@+id/dd_facilities"
+                    android:id="@+id/add_facilities"
                     android:layout_width="fill_parent"
-                    android:layout_height="80dp"
+                    android:layout_height="54dp"
 
                     />
             </LinearLayout>
-
 
             <EditText
                 android:id="@+id/Purpose"
                 android:layout_width="fill_parent"
                 android:layout_height="90dp"
-                android:layout_marginTop="580dp"
+                android:layout_marginTop="530dp"
                 android:layout_marginBottom="10dp"
 
                 android:breakStrategy="balanced"
@@ -136,9 +135,9 @@
                 android:id="@+id/SubmitAppointment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-android:gravity="center"
-                android:layout_marginTop="680dp"
+                android:layout_marginTop="640dp"
                 android:elevation="4dp"
+                android:gravity="center"
                 android:paddingLeft="70dp"
                 android:paddingRight="70dp"
                 android:text="Submit"
