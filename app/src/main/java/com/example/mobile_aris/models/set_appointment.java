@@ -5,6 +5,8 @@ import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -18,13 +20,18 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.mobile_aris.R;
@@ -40,24 +47,44 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
 
 public class set_appointment extends AppCompatActivity {
-
+    String[] time_slots={"8-9 am","9-10 am","10-11 am","1-2 pm","2-3 pm","3-4 pm"};
     // initializing
     // FusedLocationProviderClient
     // object
     private FusedLocationProviderClient mFusedLocationClient;
     public Double longitude_here,latititude_here;
-    private ArrayList<clinics> cliniclist_near = new ArrayList<>();
-    private ArrayList<clinics> cliniclist_all = new ArrayList<>();
+
+    private ArrayList<clinics> cliniclist = new ArrayList<clinics>();
+    private ArrayList<clinics> cliniclist1 = new ArrayList<clinics>();
+
+    private ArrayList<String> stringall = new ArrayList<>();
+    private ArrayList<String> stringnearby = new ArrayList<>();
+    String time_slot_var_here;
+
+    private DatePicker datePicker;
+    private Calendar calendar;
+    private TextView dateView;
+    private int year, month, day;
+
+
+
     private int PERMISSION_ID = 44;
-    private Spinner spinerclinic,spinnertime;
-    private TextView date,purpose;
+    private Spinner spinerclinic,spinerclinic2,spinner_time;
+    private TextView date,purpose,clinic,time;
     String clinic_id;
-    ArrayAdapter<String> stringAdapterclinic_near,stringAdapterclinic_all;
-    ArrayList<String> stringclinic_near = new ArrayList<>();
-    ArrayList<String> stringclinic_all = new ArrayList<>();
+
+    ArrayAdapter<String> a1,a2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,16 +92,109 @@ public class set_appointment extends AppCompatActivity {
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         date = (TextView) findViewById(R.id.in_date);
         purpose = (TextView) findViewById(R.id.Purpose);
-        spinerclinic = (Spinner) findViewById(R.id.add_facilities);
-        spinnertime = (Spinner) findViewById(R.id.set_time);
+
+        spinerclinic = (Spinner) findViewById(R.id.fa1);
+        spinerclinic2 = (Spinner) findViewById(R.id.fa2);
+        spinner_time = (Spinner) findViewById(R.id.add_time);
+
+        dateView = (TextView) findViewById(R.id.in_date);
+        calendar = Calendar.getInstance();
+        year = calendar.get(Calendar.YEAR);
+
+        month = calendar.get(Calendar.MONTH);
+        day = calendar.get(Calendar.DAY_OF_MONTH);
+        showDate(year, month+1, day);
 
         // method to get the location
+        getLastLocation();
+        spinner_time.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(), time_slots[position], Toast.LENGTH_SHORT).show();
+                time_slot_var_here = time_slots[position];
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
 
+            }
+        });
+        //Creating the ArrayAdapter instance having the bank name list
+        ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item,time_slots);
+        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//Setting the ArrayAdapter data on the Spinner
+        spinner_time.setAdapter(aa);
+
+        spinerclinic.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                clinic_id = cliniclist.get(position).get_id();
+
+                Toast.makeText(set_appointment.this, "_id:"+clinic_id, Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        spinerclinic2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                clinic_id = cliniclist1.get(position).get_id();
+                Toast.makeText(set_appointment.this, "_id:"+clinic_id, Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
 
 
     }
+
+    @SuppressWarnings("deprecation")
+    public void setDate(View view) {
+        showDialog(999);
+        Toast.makeText(getApplicationContext(), "ca",
+                Toast.LENGTH_SHORT)
+                .show();
+    }
+
+    @Override
+    protected Dialog onCreateDialog(int id) {
+        // TODO Auto-generated method stub
+        if (id == 999) {
+            return new DatePickerDialog(this,
+                    myDateListener, year, month, day);
+        }
+        return null;
+    }
+
+    private DatePickerDialog.OnDateSetListener myDateListener = new
+            DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker arg0,
+                                      int arg1, int arg2, int arg3) {
+                    // TODO Auto-generated method stub
+                    // arg1 = year
+                    // arg2 = month
+                    // arg3 = day
+                    showDate(arg1, arg2+1, arg3);
+                }
+            };
+
+    private void showDate(int year, int month, int day) {
+        dateView.setText(new StringBuilder().append(day).append("/")
+                .append(month).append("/").append(year));
+    }
+
+
 
     public void onRadioButtonClicked(View view) {
         // Is the button now checked?
@@ -84,40 +204,22 @@ public class set_appointment extends AppCompatActivity {
         switch(view.getId()) {
             case R.id.radio_nearby:
                 if (checked)
-                    cliniclist_near.clear();
-                    stringclinic_near.clear();
-                    getLastLocation();
-                    stringAdapterclinic_near = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, stringclinic_near);
-                    stringAdapterclinic_near.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                    spinerclinic.setAdapter(stringAdapterclinic_near);
-                    spinerclinic.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                        @Override
-                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                            clinic_id = cliniclist_near.get(position).get_id();
-                            spinerclinic.getSelectedItem().toString();
-                            Log.d("_id", "onItemSelected: "+clinic_id);
-                        }
 
-                        @Override
-                        public void onNothingSelected(AdapterView<?> parent) {
+                spinerclinic.setVisibility(View.VISIBLE);
+                spinerclinic2.setVisibility(View.INVISIBLE);
 
-                        }
-                    });
                     break;
             case R.id.radio_all:
                 if (checked)
-                    cliniclist_all.clear();
-                    stringclinic_all.clear();
-                    getLastLocation();
-                    stringAdapterclinic_all = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, stringclinic_all);
-                    stringAdapterclinic_all.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                    spinerclinic.setAdapter(stringAdapterclinic_all);
+
+
+                spinerclinic.setVisibility(View.INVISIBLE);
+                spinerclinic2.setVisibility(View.VISIBLE);
+
                     break;
 
         }
     }
-
-
 
     @SuppressLint("MissingPermission")
     private void getLastLocation() {
@@ -147,22 +249,30 @@ public class set_appointment extends AppCompatActivity {
                                     Request.Method.GET,
                                     getString(R.string.url) + url, null, response -> {
                                         try {
+                                            cliniclist.clear();
+                                            cliniclist1.clear();
+                                            stringall.clear();
+                                            stringnearby.clear();
                                             JSONObject clinics = response.getJSONObject("clinics");
                                             Log.d("response", "onComplete: "+clinics);
                                             JSONArray nearby = new JSONArray(clinics.getString("nearby"));
                                             JSONArray all = new JSONArray(clinics.getString("all"));
 
                                             for (int i = 0; i < nearby.length(); i++) {
+
                                                 JSONObject clinic_1 = nearby.getJSONObject(i);
-                                                JSONObject a1 = new JSONObject(clinic_1.getString("location"));
-                                                JSONObject a2 = new JSONObject(clinic_1.getString("address"));
                                                 clinics near_clinic = new clinics(
                                                         clinic_1.getString("_id"),
                                                         clinic_1.getString("name")
                                                 );
-                                                cliniclist_near.add(near_clinic);
-                                                stringclinic_near.add(near_clinic.getName_clinic());
+
+                                                cliniclist.add(near_clinic);
+                                                stringnearby.add(near_clinic.getName_clinic());
+
                                             }
+                                            a1 = new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_item, stringnearby);
+                                            a1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                                            spinerclinic.setAdapter(a1);
 
                                             for (int i = 0; i < all.length(); i++) {
 
@@ -172,9 +282,14 @@ public class set_appointment extends AppCompatActivity {
                                                         clinic_2.getString("name")
                                                 );
 
-                                                cliniclist_all.add(all_clinic);
-                                                stringclinic_all.add(all_clinic.getName_clinic());
+                                                cliniclist1.add(all_clinic);
+                                                stringall.add(all_clinic.getName_clinic());
+
                                             }
+
+                                            a2 = new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_item, stringall);
+                                            a2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                                            spinerclinic2.setAdapter(a2);
 
 
 
@@ -274,4 +389,63 @@ public class set_appointment extends AppCompatActivity {
             getLastLocation();
         }
     }
+
+
+    public void create_apment(View v) throws ParseException {
+//        Intent intent =getIntent();
+
+        String purpose = ((EditText) findViewById(R.id.Purpose)).getText().toString();
+        @SuppressLint("SimpleDateFormat") Date date=new SimpleDateFormat("dd/MM/yyyy").parse(((EditText) findViewById(R.id.in_date)).getText().toString());
+        String time_slot = ((TextView) findViewById(R.id.time_slot_here)).getText().toString();
+        String clinicId = clinic_id;
+
+        JSONObject jsonitem = new JSONObject();
+        try {
+
+
+
+                jsonitem.put("clinicId", clinicId);
+                jsonitem.put("date", date);
+                jsonitem.put("time_slot", time_slot);
+                jsonitem.put("purpose", purpose);
+                jsonitem.put("status", "Pending");
+
+
+        }
+        catch (JSONException e){
+            e.printStackTrace();
+        }
+
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, "https://aris-backend.herokuapp.com/api/appointments/add/request", jsonitem, new Response.Listener<JSONObject>() {
+            public void onResponse(JSONObject response) {
+                try {
+                    String message = response.getString("success");
+                    Toast.makeText(set_appointment.this, "message: " + message, Toast.LENGTH_LONG).show();
+                    finish();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("runtime", "somethings wrong in json");
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMjM4ZWM2MzU1Nzk1NGQyZWExZWU0NSIsImlhdCI6MTY0ODEwOTUyMCwiZXhwIjoxNjQ4NTQxNTIwfQ.TWJ0LfeE0V8v48DojVJmxrYVrdyliYDD8WNCZLMUa0Q");
+                return params;
+            }
+        };
+
+        requestQueue.add(jsonObjectRequest);
+    }
+
+
 }
